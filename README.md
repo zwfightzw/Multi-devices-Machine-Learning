@@ -35,16 +35,3 @@ incrementing `DEVICE_ID`.
 
 (For now, need to uncomment a line in `Messager.getOwnAddr()`.)
 
-## Deployment to Resin.io
-The `Dockerfile` contains the instructions on how to provision the Pis.
-Starting from a Raspbian image, it first installs the debian packages, then python, then copies over the repo and runs `init.sh`.
-
-Push to the Resin.io repo and it will build any changes and deploy.
-
-## Adding dependencies
-If you ever add a python dependency, update `requirements.txt` like so:
-```bash
-pip freeze > requirements.txt
-```
-
-Debian and python packages also have to be added to the `Dockerfile`.
