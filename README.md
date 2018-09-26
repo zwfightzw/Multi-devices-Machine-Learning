@@ -35,3 +35,6 @@ incrementing `DEVICE_ID`.
 
 (For now, need to uncomment a line in `Messager.getOwnAddr()`.)
 
+test
+
+
