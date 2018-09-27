@@ -67,7 +67,7 @@ class Messager:
         for name in bak_all_names:
             # lower device establishes connection to avoid duplicate
             socket = self.context.socket(zmq.PAIR)
-            if int(name) < int(self.getOwnName()):
+            if int(name) > int(self.getOwnName()):
                 socket.connect(self.getAddr(name))
             else:
                 socket.bind('tcp://*:%d' % self._findPortFor(name))

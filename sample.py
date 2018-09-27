@@ -19,3 +19,9 @@ else:
     m.sendMessage('1', 'hello, 1, i am %s' % m.getOwnName())
 
 m.start()
+num = 0
+
+if not os.environ['DEVICE_ID'] == '1':
+    for i in range(10):
+        m.sendMessage('1', 'hello, 1, i am %s, the num is %d'  % (m.getOwnName(),num))
+        num = num + 1
