@@ -31,6 +31,8 @@ class Messager:
         #self.zk.ensure_path("/addr")
 
         print('aaaaaaaaaaa')
+        a = self.getOwnName()
+        b = bytes(self.getOwnAddr(), "UTF-8")
         # you should delete the path of  addr/1 each running time, use the command of ./zkCli.sh
         if not self.zk.exists("/addr/%s" % self.getOwnName()):
             self.zk.create("/addr/%s" % self.getOwnName(), bytes(self.getOwnAddr(), "UTF-8"))
@@ -66,8 +68,9 @@ class Messager:
         self._allNodes = {}
         for name in bak_all_names:
             # lower device establishes connection to avoid duplicate
+            print(name)
             socket = self.context.socket(zmq.PAIR)
-            if int(name) > int(self.getOwnName()):
+            if int(name) < int(self.getOwnName()):
                 socket.connect(self.getAddr(name))
             else:
                 socket.bind('tcp://*:%d' % self._findPortFor(name))
