@@ -3,7 +3,7 @@
 import os
 import time
 from clustermessaging.Messager import Messager
-
+# change the parameter of DEVICE_ID based on special device num.
 os.environ['DEVICE_ID'] = '1'
 
 m = Messager()
