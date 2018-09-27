@@ -6,7 +6,6 @@ from clustermessaging.Messager import Messager
 
 os.environ['DEVICE_ID'] = '1'
 
-
 m = Messager()
 
 def callback(message, name):
